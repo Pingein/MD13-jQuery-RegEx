@@ -43,19 +43,23 @@ describe('password validate', () => {
     expect(validator(type, 'pa5$wor@')).toEqual(true)
     expect(validator(type, '1234%^&*')).toEqual(true)
     expect(validator(type, '1a5$wo*d')).toEqual(true)
+    expect(validator(type, 'Pa5$wor')).toEqual(false)
+    expect(validator(type, 'pa5$wrd')).toEqual(false)
   })
 })
 
 describe('name validate', () => {
-  const type = 'password'
-  it('should return true if password format is correct, else false', () => {
-    expect(validator(type, 'Pa5$word')).toEqual(true)
-    expect(validator(type, 'pa5$word')).toEqual(true)
-    expect(validator(type, 'Pa55word')).toEqual(false)
-    expect(validator(type, 'Pa5$w0rd')).toEqual(true)
-    expect(validator(type, 'Pa45$word')).toEqual(true)
-    expect(validator(type, 'pa5$wor@')).toEqual(true)
-    expect(validator(type, '1234%^&*')).toEqual(true)
-    expect(validator(type, '1a5$wo*d')).toEqual(true)
+  const type = 'name'
+  it('should return true if name format is correct, else false', () => {
+    expect(validator(type, 'name surname')).toEqual(true)
+    expect(validator(type, 'ns')).toEqual(true)
+    expect(validator(type, 'n')).toEqual(false)
+    expect(validator(type, 'name')).toEqual(true)
+    expect(validator(type, 'uvuvwevwevwe onyetenyevwe ugwemubwem ossas')).toEqual(true)
+    expect(validator(type, 'name  surname')).toEqual(false)
+    expect(validator(type, 'n m s')).toEqual(true)
+    expect(validator(type, 'n.s.')).toEqual(true)
+    expect(validator(type, 'n.')).toEqual(false)
+    expect(validator(type, 'n. s.')).toEqual(true)
   })
 })

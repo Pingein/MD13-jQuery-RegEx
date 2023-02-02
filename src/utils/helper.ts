@@ -3,7 +3,7 @@ const validator = (type:string, input:string) => {
     let regex:RegExp
     switch (type) {
         case 'name':
-            regex = /(\w ?){2,50}/
+            regex = /(\w ?\.?){2,50}/
             break
         case 'email':
             regex = /\w+[\.\-]?\w*@\w+\.?\w+\.\w{2,}/

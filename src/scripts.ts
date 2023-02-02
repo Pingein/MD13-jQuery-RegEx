@@ -22,3 +22,8 @@ $('input').each((index, element:HTMLInputElement) => {
     })
 })
 
+$('.js-submit').on('click', (e) => {
+    e.preventDefault()
+    console.log(e)
+})
+
